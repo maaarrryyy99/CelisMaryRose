@@ -7,10 +7,31 @@ ui LayerWidget
     VerticalScrollerWidget {
         scrollBarDisabled = true
         LayerWithBackgroundColorWidget container {
-            color = Color.white()
+            color = Color.instance("#b3e3e1")
             VerticalBoxWidget list {
                 margin = context.getHeightValue("5mm")
                 spacing = context.getHeightValue("5mm")
+
+                LabelWidget myLabel {
+                    text ="ADD TASK"
+                    textColor = Color.black()
+                }
+
+                TextInputWidget addingTaskTextbox {
+                    type = TextInputWidget.TYPE_NAME
+                    placeholder = "Add Task Here"
+                    backgroundColor = Color.black()
+                    fontSize = context.getHeightValue("5mm")
+                    padding = context.getHeightValue("1mm")
+                }
+                TextButtonWidget btnAddTask : 0.1 {
+                    text = "Click to Add Task"
+                    backgroundColor = Color.instance("#615f5d")
+                    fontSize = context.getHeightValue("5mm")
+                    clickHandler = func {
+                        onAddingTaskClicked()
+                    }
+                }
             }
         }
     }
@@ -39,3 +60,8 @@ func initializeWidget override
 
 func getWidgetTitle as string:
     return "Task list"
+
+func onAddingTaskClicked
+{
+
+}
